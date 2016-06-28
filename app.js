@@ -1,5 +1,3 @@
-
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,7 +8,24 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/user');
 
-var app = express();
+var app = express(),
+    mailer = require('express-mailer');
+
+require('dotenv').config(); // need it here for tests to pass
+
+
+mailer.extend(app, {
+  from: process.env.GMAIL_FROM || 'info@softsky.com.ua',
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+	  user: process.env.GMAIL_USER,
+	  pass: process.env.GMAIL_PASSWORD
+  }
+});
+
 
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
