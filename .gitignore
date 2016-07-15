@@ -4,3 +4,4 @@ public/security
 .sass-cache
 *.log
 .env
+*.css.map
