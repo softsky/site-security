@@ -1,0 +1,37 @@
+// project/views/email.jade
+
+html
+  doctype html
+  head
+    title Your Quick Security Audit Report is generating
+    body
+      h4.h4 Hello #{name}!
+      p
+        | Your
+        strong  Quick Security Audit Report
+        |  is generating.
+      p
+        | It takes some time.
+        br
+        | Let me explain you what you do next once you recieved
+        strong  Quick Security Audit Report.
+      p
+        | Usually we find problems in 80% cases. You should contact developers of
+        a(href=website)  #{website}
+        |  and your system administrator, show them reports and ask to fix the issues found.
+        | That's important for your security.
+      h3.h3 We strongly recommend &#32;
+        a(href='http://security.softsky.com.ua#purchase-audit') to perform full audit
+        |  of your website and server.
+      //- p
+      //-   strong За безпеку потрібно платити. Хто не платить за безпеку сьогодні, завтра розплачується (
+      //-     i Ф. Рузвельт
+      //-     |)
+      //- br
+      | Sincerely,
+      br
+      | --
+      br
+      strong SOFTSKY
+      |  Site Scan
+      |  team
